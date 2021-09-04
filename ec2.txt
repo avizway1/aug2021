@@ -59,7 +59,7 @@ Windows ec2 instance launch :
 Step 1 : Choose an AMI (Amazon Machine Image)	: Operating System : Windows server 2016 base
 	
 Step 2 : Choose an Instance type 		: vCPU, Memory(RAM), Network perf
-__
+__ t2.micro
 
 
 General Purpose : Stable/balanced performance of compute, memory and network resources.
@@ -81,13 +81,14 @@ m5.large	: 2 CPU, 8 RAM
 c5.xlarge	: 4 cpu, 8 ram
 t3.medium	: 2 cpu, 4 ram
 
-Maintenance windows : Sat 06 AM IST.. 
+Maintenance windows : Sat 06 AM IST.. : greenzone window
 
 Step 3 : Configure additional settings
 	VPC, ROles, userdata
 
 	Instance Termination protection : Enable
 	Shutdown behaviour : STOP
+
 
 Step 4 : Choose storage
 
@@ -124,7 +125,7 @@ Keypair : Key pair contains public key and private key. (.pem)
 AWS Holds the Public Key. This will be stored in our launched ec2 instances.
 Customer/WE holdes the Private key. Used to decrypt/generate the password for initial instance connect.
 
-Public IP : Unique across the globe : 
+Public IP : Unique across the globe : Use this to connect to your instance.
 Private IP : Unique with in the aws network : 
 
 
