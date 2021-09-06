@@ -149,6 +149,7 @@ Task 3 : Create a user in ec2 instance provide him "Local administrator rights",
 
 ________________________________________________________________________________________
 
+D: 06/09/2021
 
 EC2 Pricing : 
 1. How many hrs our server is running. (t2.micro: 750 Hrs/Month)
@@ -160,24 +161,20 @@ FREE TIER : 750 Hrs/Month t2.micro windows instance (ondemand)
 1 instance x 24 hrs x 31 days = 744 Hrs 	--> 750 Hrs Free tier
 2 instance x 24 hrs x 16 days = 768 Hrs		
 
-
-
 Step 4 : CHoose Storage
 
 --> EBS : Elastic Block Storage
 SSD / HDD / Magnetic
 
 General purpose SSD : gp2 / gp3
-Privisioned iops SSD : io1 / io2 / io3*
+Provisioned iops SSD : io1 / io2 / io3*
 
 Throughput optimized HDD : st1 : 
 Cold hdd : sc1 
 
 Magnetic : standard
 
-XEN Hypervisor --> nitro Hypervisor
-
-IOPS : 
+IOPS : Input and Output Operations per second
 
 root Volume : COntains OS : gp2, gp3, io1, io2 and standard/magnetic
 Additional volume : st1, sc1
@@ -209,7 +206,7 @@ Cold HDD : sc1 : THroughput orientes storages, but with Less Frequently accessed
 Size : Min 125 GiB - 16 TiB.. IOPS : 250.. Throughput : 250 MB/S..
 
 
-Free TIer : 30 gb Gp2 and standard storage.. 
+Free Tier : 30 gb Gp2 and standard storage.. 
 
 --> 10% of volume size (or) 5 gb.. WHichever is highest
 
