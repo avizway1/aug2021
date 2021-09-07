@@ -295,3 +295,4 @@ ENI : Elastic Network Interface : NIC CARD for Instance.. :
 --> EC2 instance and ENI should be in same AZ.
 
 
+https://join.slack.com/t/awswithavinash/shared_invite/zt-ozg7f9gx-lGdrFMlaOAc_BiPl4V~f4w
