@@ -244,3 +244,54 @@ Task 2 : Launch an ec2 instance in ap-south-1a... Another ec2 instance in ap-sou
 Create a volume in ap-south-1a.. Attach it to "1a instance" and make it available.. Write some data into it..
 Make Same volume available to "1b instance"..!!
 
+__________________________________________________________________________________
+
+D: 07/09/2021
+
+EBS VOlumes : Always use EBS volumes only.
+Instance store volumes : We really don't use this in real environments.   (NO FREE TIER ELIGIBILTY)
+	--> Also called as Ephemeral storages (Temporary storage).
+	--> We cannot STOP/Start the instance.
+	--> Storage will be delivered from underlying host/physical resources.
+	--> If required, we can reboot. We don't loss any data.
+	--> If underlying h/w failure happens we'll loss all the data.
+
+Snapshot : Backup copy of an EBS volume.
+
+https://aws.amazon.com/blogs/storage/automating-amazon-ebs-snapshot-and-ami-management-using-amazon-dlm/
+
+SOP : Standard Operational Procedure : 
+
+DLM : Data Lifecycle manager : Automate the snapshot creation process. 
+--> We use tags to filter the resources. 
+
+Fast snapshot restore : Enable fast snapshot restore to ensure that volumes created from snapshots created by this policy instantly deliver all of their provisioned performance.
+
+--> Snapshots are point-in-time copies.
+--> Snapshots stores in S3 platform (Not in your s3).
+--> Can we view what data we have inside snapshots..?? NO
+--> Snapshot Works with Incremental backup mechanism. 
+--> If our volume is Encrypted, Snapshot also Encrypts automaticALLY. 
+--> When we are launching a volume from encrypted snapshot, volume also encrypts automatically.
+--> We cannot share an Default Master key Encrypted snapshot.
+--> If we are using Custom encryption key, we can share snapshot with another aws account, but we need to provide permissions on encryption key also to another aws account.
+
+___________
+
+How to Install IIS./ How to make windows server as webserver..!! 
+--> C:/inetpub/wwwroot/ 
+Make sure your ec2 instance security group is opened with port 80.
+
+Task 1 : Make your ec2 instance as webserver.
+Task 2 : https://aws.amazon.com/blogs/storage/automating-amazon-ebs-snapshot-and-ami-management-using-amazon-dlm/
+
+_______________________________________________________________
+
+EIP : Elastic IP Address : Dedicated IP address we will get from AWS. We can associate this to an ec2 instance. When Instance is STOP/START, this IP won't chnage.
+(COST US : NO FREE TIER ELIGIBILITY, EVEN if you generated kept it idle)
+
+
+ENI : Elastic Network Interface : NIC CARD for Instance.. : 
+--> EC2 instance and ENI should be in same AZ.
+
+
