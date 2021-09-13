@@ -477,7 +477,90 @@ Task 1 : Launch Amazon Linux 2 Instance, Connect to the instance.
 Task 2 : Launch a linux ec2 instance and make it as webserver, deliver the custom webpage. "Use Apache"
 Task 3 : Launch a Linux 2 ec2 instance and make it as webserver using "Nginx". 
 
+______________________________________________________________________________________
 
+https://www.udemy.com/course/jenkinswithavinash/?couponCode=SEP021
+https://www.udemy.com/course/linuxwithavinash/?couponCode=SEP021
+
+
+D: 13/09/2021
+
+Windows : FAT, FAT32, NTFS, ReFS
+Linux : ext3, ext4, xfs
+
+grab the name of new volume : /dev/xvdb
+
+lsblk		--> List block based devices
+df -Th		--> List the available volumes
+
+/dev/xvda1	--> root volume (/)
+/dev/xvdf	--> new Volume name 
+
+In windows OS, we mount new volumes to drive letters.. But in Linux OS, We mount volumes to Directory. 
+
+mkdir newvolume
+
+file -s /dev/xvdf  	--> If this command returns with "data", no file system.
+			--> If this returns ext3/xfs filesystem.. We have a file system.
+
+
+mkfs -t xfs /dev/xvdf		--> Make file system and write it to Additonal volume
+
+mount /dev/xvdf newvolume/	--> mount addl volume to directory
+
+--> Above mount is temp mount only.. it won't available after the instance reboot.
+--> To make this volume perm mount to the directory, Add entry in "/etc/fstab" file.
+--> Get the entry information from "/etc/mtab" file. 
+
+--> cat /etc/mtab		--> Grab the entry related to newly added addl volume
+
+/dev/xvdf /home/ec2-user/newvolume xfs rw,relatime,attr2,inode64,noquota 0 0
+
+--> vim /etc/fstab.. Write the above entry, save and quit the editor. (Do not edit the existing entry).
+
+mount -all
+__________
+--> Increase the volume size the "Cosole" first, then execute the below command..!!
+
+We can use "xfsprogs" to increase existing volume size. 
+
+yum install xfsprogs
+
+--> xfs_growfs -d /volume-Mountpoint
+--> xfs_growfs -d /home/ec2-user/newvolume
+
+_______________________
+
+GoldenAMI on Linux : 
+
+How to recover a Linux instance, if we lost Keyapir..!!!
+Ans : Choose the Instance --> Create a GAMI --> Launch from GAMI with New Keypair.
+
+
+Task 1 : Launch linux ec2 instance with 8gb root volume. Add additional "1 gb" volume to ec2 instance and make it available at OS level.
+
+Task 2 : Increase the size of the "1 gb" volume to "2 gb" we used in task 1, make it available.
+
+Task 3 : Install webserver is Linux instance, Create a golden AMI of the linux instance. 
+While launching instance from goldenAMi, In final step, choose a new keypair. try to login to instance with both the keypairs. 
+
+_______________________________________________________________________________________
+
+Userdata : We can pass commands to execute within our ec2 instance when we launch for the first time. 
+
+Linux : #!/bin/bash
+
+#!/bin/bash
+yum install httpd -y
+service httpd start
+chkconfig httpd on
+echo "<h1> This is my BSS Webserver </h1>" > /var/www/html/index.html
+
+#cloud-init
+
+Windows : <powershell> commands </powershell>
+<script> commands </script>
+<persist>true</persist>
 
 
 
