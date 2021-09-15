@@ -605,7 +605,6 @@ Application Load balancing algorithm :
 
 --> We cannot assign a dedicated IP address for our Application ELB.
 
-
 Network ELB : TCP.. 
 --> Flow Hash algorithm.
 --> We CAN assign a dedicated IP address for our network ELB.
@@ -620,6 +619,75 @@ Task : Launch multiple webservers in Multiple AZs... COnfigure the Classic ELB.
 Task : Practice application ELB with multiple TGs. (80, 8080, 8888)
 Task : Practice Network ELB with multiple TGs. (80, 8080, 8888)
 
+__________________________________________________________________________________
 
+metadata : data about the data : We can get information about the running ec2 instance. 
+
+curl http://169.254.169.254/latest/meta-data/
+
+ami-id
+ami-launch-index
+ami-manifest-path
+block-device-mapping/
+events/
+hibernation/
+hostname
+identity-credentials/
+instance-action
+instance-id
+instance-life-cycle
+instance-type
+local-hostname
+local-ipv4
+mac
+metrics/
+network/
+placement/
+profile
+public-hostname
+public-ipv4
+public-keys/
+reservation-id
+security-groups
+
+________________________
+
+Cloudwatch : Monitoring service in AWS Environment.
+EC2 : 
+--> Basic Monitoring : 5 Minutes (Free, enabled automatically)
+--> Detailed Monitoring : 1 Minute (Cost us)
+
+Using CW Default metrics, We can monitor CPU, Network, DISK... But "NOT Memory" / RAM.
+--> We need to use Custom CW Metrics to get RAM Usage.
+
+______________________________________________________________________________________
+
+ASG : Auto Scaling Group : 
+
+--> DYnamic (Step/Simple) Load 
+--> Scheduled scaling : 
+--> Manual : 
+
+1. Create a Golden AMI
+2. Create an ELB (Empty LB)
+3. Create an ASG
+	3.1 Create a Launch configuration / Launch template (WHat settings instance)
+	3.2 Configure the ASG (When to scale/ Desired count)
+
+
+ScaleIN : Remove the instance from ASG
+ScaleOut : Add the instances to ASG.
+
+How ASG will choose the instance to terminate if any ScaleIN action triggered..!! 
+
+ASG Termination policy : refer to the image.
+
+
+t2.micro --> Current configuration.. 
+t2.nano..??? How you can do this with 0 downtime..!! 
+
+
+Create a new launch configuration/template.. Associate this with ASG. Terminate the existing instance.. Now new instance will come with updated launch config settings.
+(Set Desired capacity to 2)..!!! 
 
 
