@@ -662,6 +662,8 @@ Using CW Default metrics, We can monitor CPU, Network, DISK... But "NOT Memory" 
 
 ______________________________________________________________________________________
 
+D: 16/09/2021
+
 ASG : Auto Scaling Group : 
 
 --> DYnamic (Step/Simple) Load 
