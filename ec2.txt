@@ -665,7 +665,7 @@ ________________________________________________________________________________
 D: 10/08/2021
 
 EFS : Elastic File System (File Share) : Centralised storage. 
---> EFS works with NFS V4.1  (Network file system)
+--> EFS works with NFS V4.1  (Network file system) : Port 2049
 --> At movement it supports only Linux OS.
 --> No Pre-Provisioning required. 
 
@@ -683,6 +683,7 @@ mkdir myefs
 
 sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-00f7ffd1.efs.ap-south-1.amazonaws.com:/ /var/www/html/
 
+grab entry from /etc/mtab file and added this entry in /etc/fstab file
 
 fs-00f7ffd1.efs.ap-south-1.amazonaws.com:/ /var/www/html nfs4 rw,relatime,vers=4.1,rsize=1048576,wsize=1048576,namlen=255,hard,noresvport,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=172.31.47.6,local_lock=none,addr=172.31.44.248 0 0
 _____
@@ -693,11 +694,11 @@ For windows we have FSx..
 __________________________________________________________
 
 We open ec2 instance ports to Entire network IP range (10.0.0.0/8)
-
 ** SG Pipe mechanism.
 
 https://www.youtube.com/watch?v=46julItfeFQ
 
+If we are using "DefaultSG" for our EFS, We can add "DefaultSG" for our ec2 instance also, so both can communicate. 
 _____________________________________________
 
 Cloudwatch : 
@@ -748,3 +749,57 @@ public-ipv4
 public-keys/
 reservation-id
 security-groups
+______________________________________________________________________________________
+
+D: 20/09/2021
+
+AWS CLI : 
+
+IAM User : programatic Access : AccesskeyID and SecretAccesskey : AWS CLI.. 3rd, cdk/sdk
+
+https://aws.amazon.com/cli
+
+aws --version			--> Tells us what cli version is installed.
+
+configure the aws cli: aws configure
+
+aws servicename commands
+
+aws s3 ls			--> List all the s3 buckets
+aws s3 ls s3://avinash.bucket	--> list objects from the s3 bucket
+aws s3 ls avinash.bucket
+
+aws s3 cp/sync sourcepath destinationpath
+
+aws s3 mb s3://avinash.bucket.1 --region ap-south-1
+
+aws s3 cp s3://avinash.bucket s3://avinash.bucket.1 --recursive
+
+aws s3 sync s3://avinash.bucket s3://avinash.bucket.1
+
+presign
+
+aws s3 presign s3://bucketname/objectname --expire 60
+
+aws s3 presign s3://avinash.bucket.1/s3.txt --expire 30
+
+___
+
+https://docs.aws.amazon.com/cli/latest/reference/
+
+__
+https://awsclibuilder.com/home
+
+
+Task : Launch an ec2 instance using CLI.  (ami id, instance-type, subnet-id, security group id, keypair, count)
+
+Task 2 : Upload a webtemplate to an s3 bucket.. while launching the instance, make your instance as webserver then copy all the webcontent from s3 bucket to web content path (/var/www/html/). Perform using "userdata".
+
+#!/bin/bash
+yum install httpd -y
+service httpd start
+chkconfig httpd on
+copy data from s3 to ec2
+_______________________________________________________________________
+
+
