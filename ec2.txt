@@ -701,55 +701,6 @@ https://www.youtube.com/watch?v=46julItfeFQ
 If we are using "DefaultSG" for our EFS, We can add "DefaultSG" for our ec2 instance also, so both can communicate. 
 _____________________________________________
 
-Cloudwatch : 
-Dashboard : Centrally monitor multiple resources. 
-
-
-Project X : 
-ec2, s3, elb, rds
-
-Cloudwatch events is now renamed as Amazon Events Bridge.
-
-
-Task : Stop your ec2 instance at a given time using Cloudwatch eventsbridge option. 
-
-Task 2 : Create an EFS.. and Launch multiple ec2 instance, Make it as webserver.. Mount efs to "web content path". 
-
-Task 3 : Create an Eventsbridge to take a snapshot Everymonth 10th 06:00 AM for a particular volume.
-
-https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
-
-__________________________________________________________________________________
-
-metadata : data about the data : We can get information about the running ec2 instance. 
-
-curl http://169.254.169.254/latest/meta-data/
-
-ami-id
-ami-launch-index
-ami-manifest-path
-block-device-mapping/
-events/
-hibernation/
-hostname
-identity-credentials/
-instance-action
-instance-id
-instance-life-cycle
-instance-type
-local-hostname
-local-ipv4
-mac
-metrics/
-network/
-placement/
-profile
-public-hostname
-public-ipv4
-public-keys/
-reservation-id
-security-groups
-______________________________________________________________________________________
 
 D: 20/09/2021
 
@@ -780,16 +731,13 @@ aws s3 sync s3://avinash.bucket s3://avinash.bucket.1
 presign
 
 aws s3 presign s3://bucketname/objectname --expire 60
-
 aws s3 presign s3://avinash.bucket.1/s3.txt --expire 30
 
 ___
 
 https://docs.aws.amazon.com/cli/latest/reference/
-
 __
 https://awsclibuilder.com/home
-
 
 Task : Launch an ec2 instance using CLI.  (ami id, instance-type, subnet-id, security group id, keypair, count)
 
@@ -840,4 +788,52 @@ ___
 
 Lightsail : 
 
-__
+________________________________________________________________________________________________________________________________________________________
+
+D: 23/09/2021
+
+Cloudwatch : 
+Dashboard : Centrally monitor multiple resources. 
+
+Project X : 
+ec2, s3, elb, rds
+
+Cloudwatch events is now renamed as Amazon Events Bridge.
+
+Task : Stop your ec2 instance at a given time using Cloudwatch eventsbridge option. 
+
+Task 2 : Create an Eventsbridge to take a snapshot Everymonth 10th 06:00 AM for a particular volume.
+
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
+
+__________________________________________________________________________________
+
+metadata : data about the data : We can get information about the running ec2 instance. 
+
+curl http://169.254.169.254/latest/meta-data/
+curl http://169.254.169.254/latest/user-data/
+ami-id
+ami-launch-index
+ami-manifest-path
+block-device-mapping/
+events/
+hibernation/
+hostname
+identity-credentials/
+instance-action
+instance-id
+instance-life-cycle
+instance-type
+local-hostname
+local-ipv4
+mac
+metrics/
+network/
+placement/
+profile
+public-hostname
+public-ipv4
+public-keys/
+reservation-id
+security-groups
+______________________________________________________________________________________
