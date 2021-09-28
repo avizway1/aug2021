@@ -121,8 +121,7 @@ https://app.diagrams.net/?splash=0&libs=aws4
 
 ______________________________________________________________________________________
 
-D: 18/08/2021
-
+D: 
 VPC NAT Gateway (No FREE TIER ELIGIBILITY): Is designed to provide Internet to private Subnet resources. NAT always runs in custom VPCs public subnet. We need to generate an EIP (Elastic IP). 
 
 Private subnet ec2 instances want to access something from internet / endpoint hosted over the internet / patching purpose it needs internet. 
@@ -162,7 +161,7 @@ https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html
 --> Lowest rule number will have highest permissions. 
 ________________________________________________________________________________________
 
-D: 19/08/2021
+D: 
 
 VPC Peering : Allow us to enable communication between multiple VPCs. (Same region, DIff region, Diff AWS accout VPCs)
 
