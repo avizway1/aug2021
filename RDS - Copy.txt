@@ -85,7 +85,7 @@ Task : Launch an Mysql RDS db instance in CUstomVPCs Private SUbnet. Launch an e
 Task 2 : Restore the shared sample db to the rds instance. 
 _________________________________________________________________________________________
 
-D: 
+D: 04/10/2021
 
 MultiAZ Deployment : Designed for Failover/FT purpose. : Creates a standby in a different Availability Zone (AZ) to provide data redundancy, eliminate I/O freezes, and minimize latency spikes during system backups.
 
@@ -112,9 +112,7 @@ Primary : Supports read and write
 Replica : Supports only read operations
 
 
-_______________________________________________________________________________________
 
-D: 
 
 Manual Snapshots : We can create snapshots manually. These won't delete along with rds db instance.  We need to delete manually.
 
@@ -126,6 +124,9 @@ RDS won't work on In-Place restoration. Restoration happens as a new rds db inst
 percona xtra backup
 
 Restore to point in time : You are creating a new DB instance from a source DB instance at a specified time.
+
+____________________________________________
+
 
 Aurora DB : No Free tier eligibility
 
