@@ -112,8 +112,6 @@ Primary : Supports read and write
 Replica : Supports only read operations
 
 
-
-
 Manual Snapshots : We can create snapshots manually. These won't delete along with rds db instance.  We need to delete manually.
 
 Automated/system snapshots : AWS creates these, We cannot delete these.
@@ -125,8 +123,8 @@ percona xtra backup
 
 Restore to point in time : You are creating a new DB instance from a source DB instance at a specified time.
 
-____________________________________________
-
+______________________________________________________________________________________
+D: 05/10/2021
 
 Aurora DB : No Free tier eligibility
 
@@ -142,9 +140,10 @@ Now you can select, insert, update, and delete data in DynamoDB. using ad hoc Pa
 
 https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html
 
+
 {
-name : Avinash,
-COntact : 1111,
+Name : Avinash,
+Contact : 1111,
 address : 
 	{	
 	street : 1,
@@ -153,5 +152,23 @@ address :
 }
 
 DAX : Dynamodb accelarator : in-Memory caching solution for DynamoDB.
+
+
+Task : https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TicTacToe.html
+
+___________________
+
+Elasticache : 
+--> MemcacheD
+--> Redis
+
+Amazon DocumentDB : MongoDB compatable database. 
+
+Task : 
+https://aws.amazon.com/getting-started/hands-on/create-nosql-table/
+https://aws.amazon.com/getting-started/hands-on/amazon-efs-backup-and-restore-using-aws-backup/?trk=gs_card
+https://aws.amazon.com/getting-started/hands-on/migrate-rdsmysql-to-auroramysql/?trk=gs_card
+
+
 
 
