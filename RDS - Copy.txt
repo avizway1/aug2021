@@ -241,9 +241,36 @@ VMWARE : https://www.youtube.com/watch?v=Vx9lRRY-shg
 Task 2 : Deliver website using ELB.. Generate SSL cert and configure http to https redirection.
 https://raw.githubusercontent.com/avizway/redirection/master/httptohttps
 
-Task 3 : COnfigure the Wordpress website with 3 layer. 
-
 _______________________________________________________________________________________
+
+D: 09/10/2021
+
+Cloudfront : AWS CDN Service : Content Delivery Network : 
+
+Origin : S3.. ELB.. Media Service.. 
+
+OAI : origin Access identity : CLoudfront securely get the data from orgins. 
+
+TTL : 86400 Sec
+
+How to clear the cache from all the edge locations..!! 
+Ans : perform invalidation.
+
+dvkj87s9hnr6t.cloudfront.net
+https://learnaws.co.in
+
+_______
+
+Task : Deliver ELB website with Cloudfront distribution. Make sure your ec2 instance is in private subnet.
+
+
+
+
+
+
+
+
+
 
 
 
