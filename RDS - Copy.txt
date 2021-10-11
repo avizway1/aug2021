@@ -263,7 +263,62 @@ _______
 
 Task : Deliver ELB website with Cloudfront distribution. Make sure your ec2 instance is in private subnet.
 
+______________________________________________________________________________________
 
+D: 
+Lambda : Serverless architecture : Underlying infra managed by aws.
+--> Configuration (128 mb memory) 
+--> How many reqests
+--> Code run time (in Minutes)
+
+python
+go
+node.js
+.net core
+ruby
+java
+
+Canary function : Open the website and look for the given string.
+
+How to trigger lambda function periodically.? 
+Ans : Amazon EventBridge / CLoudwatch events (Previously).. rate format and cron format..
+
+Increase the function configurtions.? 
+Memory --> 128 MB, 10 GB..
+
+Add additional permissions to the lambda function.
+Navigate the ROle associate to the lambda, add required permissions. 
+
+Where we get all the logs / previous executed results.
+CLoudwatch logs.. Loggroups.. 
+
+Can we run lambda with in VPC.? If yes, how..??
+Lambda's Role must have "AWSLambdaVPCAccessExecutionRole" permissions.
+
+
+Python : https://www.youtube.com/watch?v=YYXdXT2l-Gg&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU
+https://www.youtube.com/watch?v=rfscVS0vtbw
+
+AWS Python DOcumentation : https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html
+
+_______
+
+Task : Try the lambda functions i have shared.
+
+https://www.youtube.com/watch?v=8gfSS-ZIulQ
+
+_____________________________________________________________________________
+
+Cloudformation : IaC (Infrastructure as Code) : 
+--> Free.. But for the resources it creates. 
+--> Supports JSON & YAML
+
+https://egghead.io/courses/learn-aws-lambda-from-scratch-d29d
+https://www.w3schools.com/js/js_json_intro.asp
+
+https://www.youtube.com/watch?v=yDp6pGwasMo&list=PLneBjIzDLECmpOYF5y51fOsBRqPkuX3NH
+
+_______________________________________________________________________________________
 
 
 
