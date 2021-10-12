@@ -265,7 +265,8 @@ Task : Deliver ELB website with Cloudfront distribution. Make sure your ec2 inst
 
 ______________________________________________________________________________________
 
-D: 
+D: 11/10/2021
+
 Lambda : Serverless architecture : Underlying infra managed by aws.
 --> Configuration (128 mb memory) 
 --> How many reqests
@@ -319,6 +320,100 @@ https://www.w3schools.com/js/js_json_intro.asp
 https://www.youtube.com/watch?v=yDp6pGwasMo&list=PLneBjIzDLECmpOYF5y51fOsBRqPkuX3NH
 
 _______________________________________________________________________________________
+
+D: 
+
+cloud9 : IDE within AWS environment.
+
+AWS CDK : 
+node --version
+
+npm install -g aws-cdk
+
+cdk --version
+
+cdk init 		--> To initialise a project in CDK
+cdk init sample-app --language typescript
+npm run watch
+cdk synth
+cdk bootstrap
+cdk deploy
+
+ * `npm run build`   compile typescript to js
+ * `npm run watch`   watch for changes and compile
+ * `npm run test`    perform the jest unit tests
+ * `cdk deploy`      deploy this stack to your default AWS account/region
+ * `cdk diff`        compare deployed stack with current state
+ * `cdk synth`       emits the synthesized CloudFormation template
+
+AWS Console recorder : Chrome extension
+
+cdkworkshop.com
+______________________________________________________________________________________
+
+CICD Deployment : 
+
+git clone
+git add .
+git status
+git commit -m "commit msg"
+git push
+git pull
+
+git checkout -b "branchname"
+git checkout branch
+
+
+Code commit : GIT : https://www.youtube.com/watch?v=rtI26X6FJX0&list=PLneBjIzDLECkdgoinrTO7D519zgPEmcte
+
+Code build : ant, maven
+COde Deploy : Jenkins, cruiseCI, solanoci
+COde Pipeline : Jenkins
+_________________________________
+
+ECS : Elastic Container Service : AWS Own service 
+ECR : Elastic container registery : repository to store images
+EKS : Elastic Kubernates Service : 
+
+
+ECS : 
+--> EC2 : We will get an ec2 instance, docker runs with in instance.. App perf/resource utilisation depends on ec2 configurtion.
+--> Fargate : ECS manages everything, Based on load it scales.
+--> EXTERNAL : Self-managed on-premise infrastructure with ECS Anywhere
+
+Task Defination : Contains information about what image, what configuration, network.. 
+
+Login  (aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 501170964283.dkr.ecr.ap-south-1.amazonaws.com)
+
+docker build -t avinashnginx .
+docker tag avinashnginx:latest 
+docker push
+
+
+____________________________________________________________________________________
+
+D: 12/10/2021
+
+management account / Master Account : ENabled with AWS Organisations. 
+
+Directory Service : 
+--> Directory services with in AWS envronment : AWS Managed Microsoft AD
+--> We can extend existing AD environment to AWS with "AD Connector".
+
+Directory Service : https://www.youtube.com/watch?v=RDlBoAHVmZs
+AD Connector : https://www.youtube.com/watch?v=Ca259gg6SoM
+
+Join Linux Instance to domain : https://www.youtube.com/watch?v=LWi9-XL2vWQ
+
+
+
+
+
+
+
+
+
+
 
 
 
